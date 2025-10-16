@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Browser GRU Stock Predictor</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:2rem}
+    canvas{max-width:800px;margin-bottom:1rem}
+    #timeline{display:flex;flex-direction:column;gap:0.5rem}
+  </style>
+</head>
+<body>
+  <h1>In-Browser GRU Multi-Stock Up/Down Predictor</h1>
+
+  <input type="file" id="csvFile" accept=".csv">
+  <button id="trainBtn" disabled>Train Model</button>
+  <progress id="progress" value="0" max="1"></progress>
+  <p id="status">Choose a CSV file (Date,Symbol,Open,Close)</p>
+
+  <h2>Accuracy ranking</h2>
+  <div id="accChart"></div>
+
+  <h2>Prediction timeline (green=right, red=wrong)</h2>
+  <div id="timeline"></div>
+
+  <script type="module">
+    import {App} from './app.js';
+    const app = new App();
+    app.init();
+  </script>
+</body>
+</html>
