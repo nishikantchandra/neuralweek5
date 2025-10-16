@@ -12,11 +12,12 @@
     #timeline{display:flex;flex-direction:column;gap:0.5rem}
   </style>
 </head>
-<body>
+body>
   <h1>In-Browser GRU Multi-Stock Up/Down Predictor</h1>
 
   <input type="file" id="csvFile" accept=".csv">
   <button id="trainBtn" disabled>Train Model</button>
+  <button id="abortBtn" style="display:none;">Abort</button>
   <progress id="progress" value="0" max="1"></progress>
   <p id="status">Choose a CSV file (Date,Symbol,Open,Close)</p>
 
@@ -28,8 +29,7 @@
 
   <script type="module">
     import {App} from './app.js';
-    const app = new App();
-    app.init();
+    new App().init();
   </script>
 </body>
 </html>
